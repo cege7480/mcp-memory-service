@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "build": "source venv/bin/activate && python install.py"
+  },
+  "postCreateCommand": "python -m venv venv && . venv/bin/activate && pip install -r requirements.txt"
+}

@@ -42,6 +42,11 @@ from .utils.system_detection import (
 )
 from .utils.time_parser import extract_time_expression, parse_time_expression
 
+from sse_starlette import EventSourceResponse
+from starlette.middleware.authentication import AuthenticationMiddleware
+from starlette.authentication import requires, AuthenticationError, SimpleUser, AuthCredentials
+from starlette.middleware.trustedhost import TrustedHostMiddleware
+
 # Configure logging to go to stderr
 log_level = os.getenv('LOG_LEVEL', 'ERROR').upper()
 logging.basicConfig(

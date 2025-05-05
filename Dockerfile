@@ -39,6 +39,12 @@ COPY uv_wrapper.py memory_wrapper_uv.py ./
 # Install the package with UV
 RUN python -m uv pip install -e .
 
+# Install SSE dependencies
+RUN python -m uv pip install sse-starlette httpx-sse
+
+# Create and activate virtual environment
+RUN python -m venv venv && . venv/bin/activate && pip install -r requirements.txt
+
 # Configure stdio for MCP communication
 RUN chmod a+rw /dev/stdin /dev/stdout /dev/stderr
 
